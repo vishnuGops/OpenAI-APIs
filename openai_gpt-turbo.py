@@ -7,10 +7,14 @@ completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
         {"role": "system", "content": "You are a coding and programming assistant, skilled in explaining complex programming concepts with creative flair."},
-        {"role": "user", "content": "Write a python program to print all the prime numbers between 0-100"}
+        {"role": "user", "content": "Write a python program to print fibonacci numbers between 0-25"}
     ]
 )
 
 # Extract and print the message from the completion
 response_message = completion.choices[0].message.content
 print(response_message)
+
+# Extract and print the usage information
+usage_info = completion.usage
+print("Usage:", usage_info)
